@@ -1,4 +1,6 @@
 tensorflow
-gradio
+streamlit
+pandas
 pillow
 numpy
+gradio

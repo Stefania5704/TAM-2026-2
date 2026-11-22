@@ -124,7 +124,8 @@ proyecto_mnist/
 ├── entrenar_modelo.py              entrena la red del cuaderno y la guarda
 ├── modelo_mnist.keras              el modelo YA entrenado (exactitud en prueba ≈ 97 %)
 ├── preprocesamiento.py             convierte una foto real al formato MNIST
-├── app.py                          interfaz web: arrastrar o dibujar un número
+├── app_streamlit.py                interfaz con Streamlit (localhost:8501) — VERSIÓN PRINCIPAL
+├── app.py                          interfaz alternativa con Gradio
 ├── requirements.txt                librerías necesarias
 └── ejemplos/digito_0.png … 9.png   imágenes de prueba tipo "foto de cuaderno"
 ```
@@ -135,9 +136,9 @@ proyecto_mnist/
 cd ~/proyecto_mnist
 python3 -m venv .venv              # entorno virtual: librerías aisladas del sistema
 source .venv/bin/activate
-pip install -r requirements.txt    # tensorflow, gradio, pillow, numpy
+pip install -r requirements.txt    # tensorflow, streamlit, pandas, pillow, numpy, gradio
 python entrenar_modelo.py          # opcional: ya viene modelo_mnist.keras entrenado
-python app.py                      # abre http://127.0.0.1:7860 en el navegador de la VM
+streamlit run app_streamlit.py     # abre http://localhost:8501 en el navegador de la VM
 ```
 
 **¿Por qué un entorno virtual?** Ubuntu 23.04 en adelante bloquea `pip install` sobre el Python del sistema (error `externally-managed-environment`) para no romper programas del sistema. El `.venv` es una carpeta con su propio Python y sus propias librerías.
