@@ -1,0 +1,14 @@
+# Colores base de Streamlit (botones, controles, fondo). El resto del estilo está en estilo.css
+[theme]
+base = "light"
+primaryColor = "#B03A78"
+backgroundColor = "#F8F3F9"
+secondaryBackgroundColor = "#F3E6EF"
+textColor = "#3B1C3F"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+address = "0.0.0.0"
+port = 8501

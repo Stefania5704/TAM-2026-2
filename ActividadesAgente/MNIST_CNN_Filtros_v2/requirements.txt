@@ -1,0 +1,8 @@
+tensorflow
+streamlit>=1.36
+numpy
+pandas
+pillow
+matplotlib
+altair
+scikit-learn
