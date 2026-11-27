@@ -1,5 +1,18 @@
 # Atelier neuronal: red densa vs. red convolucional en MNIST
 
+> **Esta es la versión original (`MNIST_CNN_Filtros`).** Hay otra carpeta hermana, `MNIST_CNN_Filtros_Regularizacion`, con la versión ampliada. La diferencia:
+>
+> | | `MNIST_CNN_Filtros` (esta) | `MNIST_CNN_Filtros_Regularizacion` (ampliada) |
+> |---|---|---|
+> | Contenido | Solo MNIST: red densa contra red convolucional | MNIST **y** regresión (recta y coseno), más una página de resumen |
+> | Red convolucional | 3 capas de filtros (16, 32 y 64), unos 55 000 parámetros | La del cuaderno: 2 capas (32 y 64 filtros), 50 186 parámetros, sin `conv_3` |
+> | Duración del entrenamiento | 6 épocas fijas | **EarlyStopping** (paciencia 3, máximo 30 épocas): se detiene sola cuando la validación deja de mejorar |
+> | Normalización | Siempre normalizada | Compara la red densa **con y sin normalizar** los píxeles |
+> | Sobreajuste | No se trata | Guía para leer las curvas de entrenamiento y validación, y marca de la época donde paró EarlyStopping |
+> | Estructura de la app | Una sola página con 5 pestañas | Menú de páginas (`st.navigation`): Clasificación MNIST, Regresión y Resumen |
+>
+> Esta carpeta se conserva sin cambios de código para poder comparar las dos versiones.
+
 Aplicación en Streamlit que muestra, en vivo, cómo dos redes neuronales "miran" un dígito escrito a mano:
 
 - **Red densa** (la de la clase): 784 → 64 → 64 → 10.

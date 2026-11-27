@@ -5,7 +5,7 @@ Esta guía te lleva desde el archivo `.zip` hasta la app funcionando en `localho
 > **Analogía general.** Piensa en tres "cajones" distintos:
 > 1. `~/proyecto_mnist` es tu proyecto anterior (no lo tocamos, solo usamos su entorno virtual).
 > 2. `~/proyecto_mnist_cnn` es el **taller** de esta tarea: aquí entrenas y pruebas.
-> 3. `~/TAM-2026-2/ActividadesAgente/MNIST_CNN_Filtros` es la **vitrina**: la copia que se entrega en GitHub.
+> 3. `~/TAM-2026-2/ActividadesAgente/MNIST_CNN_Filtros_Regularizacion` es la **vitrina**: la copia que se entrega en GitHub.
 
 ---
 
@@ -85,27 +85,27 @@ Abre **otra** terminal (la primera está ocupada con Streamlit) y copia el talle
 ```bash
 cd ~/TAM-2026-2
 git pull
-mkdir -p ActividadesAgente/MNIST_CNN_Filtros
-cp -r ~/proyecto_mnist_cnn/. ActividadesAgente/MNIST_CNN_Filtros/
+mkdir -p ActividadesAgente/MNIST_CNN_Filtros_Regularizacion
+cp -r ~/proyecto_mnist_cnn/. ActividadesAgente/MNIST_CNN_Filtros_Regularizacion/
 git status
 ```
 
 - `git pull` trae los últimos cambios de GitHub, para que tu copia local esté al día antes de agregar algo.
 - `mkdir -p` crea la carpeta (y no se queja si ya existe).
 - `cp -r ORIGEN/. DESTINO/` copia **todo** el contenido, incluidos los archivos ocultos como `.streamlit` y `.gitignore`. El `/.` al final significa "lo que hay adentro".
-- `git status` muestra qué archivos son nuevos. Debe aparecer `ActividadesAgente/MNIST_CNN_Filtros/` en rojo (nuevo, aún sin guardar en git). Las carpetas `__pycache__` no aparecen porque el `.gitignore` las excluye.
+- `git status` muestra qué archivos son nuevos. Debe aparecer `ActividadesAgente/MNIST_CNN_Filtros_Regularizacion/` en rojo (nuevo, aún sin guardar en git). Las carpetas `__pycache__` no aparecen porque el `.gitignore` las excluye.
 
 Ahora guarda y sube:
 
 ```bash
-git add ActividadesAgente/MNIST_CNN_Filtros
-git commit -m "Agrega app de red densa vs. convolucional con visualización de filtros"
+git add ActividadesAgente/MNIST_CNN_Filtros_Regularizacion
+git commit -m "feat: agrega app de clasificación y regresión con EarlyStopping"
 git push
 ```
 
 - `git add` pone los archivos "en la caja" para el próximo guardado.
 - `git commit -m "..."` cierra la caja con una etiqueta (el mensaje). Es una foto del proyecto en ese momento.
-- `git push` envía esa foto a GitHub. Al recargar la página del repositorio verás la nueva carpeta junto a `MNIST_Reconocedor`.
+- `git push` envía esa foto a GitHub. Al recargar la página del repositorio verás la nueva carpeta junto a `MNIST_Reconocedor` y a `MNIST_CNN_Filtros` (la versión original, sin regresión ni EarlyStopping).
 
 Los modelos entrenados (`modelos/*.keras`, unos 2 MB en total) se suben también, así quien clone el repositorio puede abrir la app sin entrenar.
 

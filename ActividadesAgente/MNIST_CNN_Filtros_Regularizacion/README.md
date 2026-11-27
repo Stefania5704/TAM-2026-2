@@ -1,5 +1,18 @@
 # Atelier neuronal: clasificación (MNIST) y regresión con redes neuronales
 
+> **Esta es la versión ampliada (`MNIST_CNN_Filtros_Regularizacion`).** Hay otra carpeta hermana, `MNIST_CNN_Filtros`, con la versión original. La diferencia:
+>
+> | | `MNIST_CNN_Filtros` (original) | `MNIST_CNN_Filtros_Regularizacion` (esta) |
+> |---|---|---|
+> | Contenido | Solo MNIST: red densa contra red convolucional | MNIST **y** regresión (recta y coseno), más una página de resumen |
+> | Red convolucional | 3 capas de filtros (16, 32 y 64), unos 55 000 parámetros | La del cuaderno: 2 capas (32 y 64 filtros), 50 186 parámetros, sin `conv_3` |
+> | Duración del entrenamiento | 6 épocas fijas | **EarlyStopping** (paciencia 3, máximo 30 épocas): se detiene sola cuando la validación deja de mejorar |
+> | Normalización | Siempre normalizada | Compara la red densa **con y sin normalizar** los píxeles |
+> | Sobreajuste | No se trata | Guía para leer las curvas de entrenamiento y validación, y marca de la época donde paró EarlyStopping |
+> | Estructura de la app | Una sola página con 5 pestañas | Menú de páginas (`st.navigation`): Clasificación MNIST, Regresión y Resumen |
+>
+> Si solo quieres ver cómo "miran" un dígito la red densa y la convolucional, la carpeta original basta. Esta versión agrega las técnicas para entrenar mejor (EarlyStopping y normalización) y lleva las redes a problemas de regresión.
+
 Aplicación en Streamlit con dos secciones, cada una con sus propios controles en la barra lateral:
 
 - **Clasificación MNIST**: cómo dos redes "miran" un dígito escrito a mano.
@@ -45,7 +58,7 @@ El dígito puede venir del conjunto de prueba de MNIST, de la carpeta `mis_image
 ## Archivos
 
 ```
-MNIST_CNN_Filtros/
+MNIST_CNN_Filtros_Regularizacion/
 ├── app.py                 portero: carga el estilo y define las páginas (st.navigation)
 ├── paginas/
 │   ├── mnist.py               clasificación MNIST (5 pestañas)
